@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yaptime - Real-Time Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="/moving.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="centered-box">
+    <img src="/realtime.png" alt="Yaptime Logo" class="logo" />
+    <input id="username-input" placeholder="Enter your username" />
+    <button id="login-btn">Join Chat</button>
+  </div>
+
+  <!-- Chat Container -->
+  <div id="chat-container" class="hidden">
+    <header>
+      <img src="/realtime.png" alt="Yaptime" class="logo-sm" />
+      <div id="user-count"></div>
+      <button id="logout-btn">Logout</button>
+    </header>
+
+    <div id="chat-box" class="animated-bg"></div>
+
+    <div id="typing-indicator"></div>
+
+    <form id="message-form" class= "animated-bg" enctype="multipart/form-data">
+      <input id="message-input" placeholder="Type a message..." autocomplete="off"/>
+      <label for="file-input" class="upload-btn">📎</label>
+      <input type="file" id="file-input" hidden/>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <audio id="mention-sound" src="VINE BOOM SOUND.mp3" preload="auto"></audio>
+  <script src="/socket.io/socket.io.js"></script>
+<script src="/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* === Base Setup === */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* === Background Video === */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* === Logo === */
+.logo {
+  max-width: 180px;
+  width: 90%;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+.logo-sm {
+  width: 50px;
+  height: auto;
+}
+
+/* === Utility Classes === */
+.hidden {
+  display: none !important;
+}
+.animated-bg {
+  background: rgba(255, 87, 34, 0.15);
+  animation: pulse 4s infinite ease-in-out;
+  -webkit-backdrop-filter: blur(10px) ;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+/* === Glowing Border === */
+.glow-container {
+  border: 2px solid rgba(255, 87, 34, 0.5);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.6);
+  animation: glow-pulse 3s infinite ease-in-out;
+  border-radius: 12px;
+}
+
+/* === Keyframes === */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(255, 87, 34, 0.4); }
+  50% { box-shadow: 0 0 16px rgba(255, 87, 34, 0.9); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(255, 87, 34, 0.3); }
+  50% { box-shadow: 0 0 14px rgba(255, 87, 34, 1); }
+}
+
+/* === Login Screen === */
+.centered-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+ -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+#login-screen input,
+#login-btn {
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 8px;
+  border: none;
+  transition: background 0.3s ease;
+}
+#login-btn {
+  background: rgba(255, 87, 34, 0.8);
+  color: white;
+  cursor: pointer;
+}
+#login-btn:hover {
+  background: rgba(255, 87, 34, 1);
+}
+
+/* === Chat Container === */
+#chat-container {
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === Header === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-box {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 65vh; 
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
+  border: 2px solid rgba(255, 87, 34, 0.3);
+  animation: glow-pulse 4s infinite;
+  scroll-behavior: smooth;
+}
+
+
+/* === Messages === */
+.message {
+  margin: 0.5em 0;
+  padding: 0.7em;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+/* Pulsating background for user messages */
+@keyframes glowPulse {
+  0%   { background-color: rgba(255, 87, 34, 0.1); }
+  50%  { background-color: rgba(255, 87, 34, 0.25); }
+  100% { background-color: rgba(255, 87, 34, 0.1); }
+}
+.user-message-pulse-1 { animation: glowPulse 4s infinite; border-left: 3px solid #ff5722; }
+.user-message-pulse-2 { animation: glowPulse 5s infinite; border-left: 3px solid #42a5f5; }
+.user-message-pulse-3 { animation: glowPulse 6s infinite; border-left: 3px solid #66bb6a; }
+.user-message-pulse-4 { animation: glowPulse 7s infinite; border-left: 3px solid #ab47bc; }
+.user-message-pulse-5 { animation: glowPulse 8s infinite; border-left: 3px solid #ff7043; }
+
+.message.you {
+  background: rgba(255, 87, 34, 0.25);
+  align-self: flex-end;
+}
+.timestamp {
+  font-size: 0.75em;
+  color: #ccc;
+  margin-left: 10px;
+}
+
+/* === Message Form === */
+#message-form {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+}
+
+/* === Inputs and File === */
+#message-input,
+#file-input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+/* === Buttons === */
+button,
+.upload-btn {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 87, 34, 0.3);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 87, 34, 0.5);
+}
+button:hover,
+.upload-btn:hover {
+  background: rgba(255, 87, 34, 0.6);
+}
+
+/* === Typing Indicator === */
+#typing-indicator {
+  font-style: italic;
+  color: #ffa;
+  padding-left: 10px;
+}
+
+/* === Logout Button === */
+#logout-btn {
+  background-color: rgba(255, 87, 34, 0.5);
+  border-radius: 50%;
+  width: 80px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  transition: background 0.3s ease;
+}
+#logout-btn:hover {
+  background-color: rgba(255, 87, 34, 0.9);
+}
+
+/* === Fade Animation for Messages === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.chat-image {
+  max-width: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.chat-image:hover {
+  transform: scale(1.05);
+}
+
+/* Fullscreen Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.image-modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-out;
+}
+.image-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.8);
+  z-index: 1001;
+}
+.message.system {
+  text-align: center;
+  color: #ffa726;
+  font-style: italic;
+  background: rgba(255, 152, 0, 0.1);
+  padding: 0.5em;
+  border-radius: 8px;
+  margin: 0.5em 0;
+}
+.system-timestamp {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 0.7em;
+  color: #ccc;
+}
+
+.message em {
+  color: orange;
+  font-weight: bold;
+  font-style: normal;
+}
+.message.system {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  font-style: italic;
+  position: relative;
+}
+
+.system-timestamp {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 0.7em;
+  color: #ccc;
+}
+.bg-red    { background: rgba(255, 0, 0, 0.2); animation: pulse-red 4s infinite; }
+.bg-orange { background: rgba(255, 165, 0, 0.2); animation: pulse-orange 4s infinite; }
+.bg-yellow { background: rgba(255, 255, 0, 0.2); animation: pulse-yellow 4s infinite; }
+.bg-green  { background: rgba(0, 255, 0, 0.2); animation: pulse-green 4s infinite; }
+.bg-blue   { background: rgba(0, 0, 255, 0.2); animation: pulse-blue 4s infinite; }
+.bg-purple { background: rgba(128, 0, 128, 0.2); animation: pulse-purple 4s infinite; }
+.bg-pink   { background: rgba(255, 105, 180, 0.2); animation: pulse-pink 4s infinite; }
+
+@keyframes pulse-red    { 50% { background: rgba(255, 0, 0, 0.4); } }
+@keyframes pulse-orange { 50% { background: rgba(255, 165, 0, 0.4); } }
+@keyframes pulse-yellow { 50% { background: rgba(255, 255, 0, 0.4); } }
+@keyframes pulse-green  { 50% { background: rgba(0, 255, 0, 0.4); } }
+@keyframes pulse-blue   { 50% { background: rgba(0, 0, 255, 0.4); } }
+@keyframes pulse-purple { 50% { background: rgba(128, 0, 128, 0.4); } }
+@keyframes pulse-pink   { 50% { background: rgba(255, 105, 180, 0.4); } }
+.message {
+  transition: background 0.5s ease-in-out;
+}
