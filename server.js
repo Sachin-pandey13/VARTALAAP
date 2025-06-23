@@ -7,7 +7,13 @@ const fs = require('fs');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: '*', // Or your Netlify URL e.g. 'https://your-site.netlify.app'
+    methods: ['GET', 'POST']
+  }
+});
+
 const upload = multer({ dest: 'uploads/' });
 
 app.use(express.static(__dirname));
