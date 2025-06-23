@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = required('cors');
 const http = require('http');
 const multer = require('multer');
 const path = require('path');
@@ -6,14 +7,21 @@ const { Server } = require('socket.io');
 const fs = require('fs');
 
 const app = express();
+app.use(cors({
+  origin: "https://yaarichat.netlify.app",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 const server = http.createServer(app);
+
 const io = new Server(server, {
   cors: {
-    origin: '*', // Or your Netlify URL e.g. 'https://your-site.netlify.app'
-    methods: ['GET', 'POST']
+    origin: "https://yaarichat.netlify.app",
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
-
 const upload = multer({ dest: 'uploads/' });
 
 app.use(express.static(__dirname));
