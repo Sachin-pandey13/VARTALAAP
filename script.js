@@ -11,8 +11,11 @@ function getUserColor(username) {
   return `rgba(${Math.abs(r)}, ${Math.abs(g)}, ${Math.abs(b)}, 0.2)`;
 }
 
+const socket = io('https://dace534e-6dad-41f3-9b09-dfec9e39bed5.e1-us-east-azure.choreoapps.dev', {
+  transports: ['websocket'],
+  secure: true
+});
 
-const socket = io('https://dace534e-6dad-41f3-9b09-dfec9e39bed5.e1-us-east-azure.choreoapps.dev');
 let username = '';
 const loginScreen = document.getElementById('login-screen');
 const chatContainer = document.getElementById('chat-container');
