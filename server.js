@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 const upload = multer({ dest: 'uploads/' });
 
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.post('/upload', upload.single('file'), (req, res) => {
