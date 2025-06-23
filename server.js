@@ -67,5 +67,9 @@ io.on('connection', socket => {
     io.emit('user-count', io.engine.clientsCount);
   });
 });
+app.get('/', (req, res) => {
+  res.send('YAPTIME backend is running.');
+});
+
 const PORT = process.env.PORT || 8080
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
