@@ -12,8 +12,7 @@ function getUserColor(username) {
 }
 
 
-
-const socket = io();
+const socket = io('https://dace534e-6dad-41f3-9b09-dfec9e39bed5.e1-us-east-azure.choreoapps.dev');
 let username = '';
 const loginScreen = document.getElementById('login-screen');
 const chatContainer = document.getElementById('chat-container');
