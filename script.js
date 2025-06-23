@@ -12,8 +12,7 @@ function getUserColor(username) {
 }
 
 const socket = io('https://dace534e-6dad-41f3-9b09-dfec9e39bed5.e1-us-east-azure.choreoapps.dev', {
-  transports: ['websocket'],
-  secure: true
+  transports: ['polling']
 });
 
 let username = '';
